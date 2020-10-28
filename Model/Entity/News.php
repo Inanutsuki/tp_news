@@ -25,9 +25,11 @@ class News
 
     // Construct
 
-    public function __construct($data)
+    public function __construct(?array $data = null)
     {
-        $this->hydrate($data);
+        if (!empty($data)) {
+            $this->hydrate($data);
+        }
     }
 
     // Function d'hydratation
@@ -39,6 +41,16 @@ class News
             if (method_exists($this, $method)) {
                 $this->$method($value);
             }
+        }
+    }
+
+    // Methode magique
+
+    public function __set($name, $value)
+    {
+        $property = "_" . $name;
+        if (property_exists($this, $property)) {
+            $this->$property = $value;
         }
     }
 
@@ -63,7 +75,6 @@ class News
     {
         return $this->_content;
     }
-
     public function dateAdded()
     {
         return $this->_dateAdded;
@@ -107,19 +118,19 @@ class News
         if (!is_string($content) || empty($content)) {
             $this->errors[] = self::CONTENU_INVALIDE;
         } else {
-            $this->content = $content;
+            $this->_content = $content;
         }
     }
 
-    public function setDateAdded(DateTime $dateAdded)
+    public function setDateAdded($dateAdded)
     {
 
-        $this->dateAdded = $dateAdded;
+        $this->_dateAdded = $dateAdded;
     }
 
-    public function setDateModif(DateTime $dateModif)
+    public function setDateModif($dateModif)
     {
-        $this->dateModif = $dateModif;
+        $this->_dateModif = $dateModif;
     }
 
     // Functions

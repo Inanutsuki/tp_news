@@ -12,7 +12,7 @@
 
 <body>
 
-    <?= include 'Model/Include/navbar.html.php' ?>
+    <?php include 'Model/Include/navbar.html.php' ?>
 
     <?= $content ?>
 

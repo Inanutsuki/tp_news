@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
-class BaseController {
+class BaseController
+{
 
-    protected function render($templateName, array $templateData = [], $baseLayout = "base.html.php"){
+    protected function render($templateName, array $templateData = [], $baseLayout = "base.html.php")
+    {
         extract($templateData);
         ob_start();
         require "templates/" . $templateName;
@@ -12,4 +14,7 @@ class BaseController {
         require "templates/" . $baseLayout;
     }
 
+    protected function getManager(string $className){
+        
+    }
 }

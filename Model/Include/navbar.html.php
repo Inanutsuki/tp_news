@@ -7,6 +7,7 @@
     <div class="navbar-nav">
       <a class="nav-link" href="index.php?action=home">Home</a>
       <a class="nav-link" href="index.php?action=newsList">News</a>
+      <a class="nav-link" href="index.php?action=newsManagement">Gestion des News</a>
     </div>
   </div>
 </nav>

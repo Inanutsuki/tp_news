@@ -11,6 +11,7 @@ if (isset($_GET['logout'])) {
 
 use App\Controller\AppController;
 
+
 $action = "home";
 if (isset($_GET["action"])) {
     $action = $_GET["action"];
@@ -22,4 +23,19 @@ switch ($action) {
     case "home":
         $ctrl->home();
         break;
+    case "newsList":
+        $ctrl->newsList();
+        break;
+    case "news":
+        $ctrl->news();
+        break;
+    case "newsManagement":
+        $ctrl->newsManagement();
+        break;
+    case "removeNews":
+        $ctrl->removeNews();
+        break;
+    // case "updateNews" .
+    //     $ctrl->updateNews();
+    //     break;
 }
